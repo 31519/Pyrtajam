@@ -4,8 +4,7 @@ import Link from "next/link";
 
 // COMPONENT IMPORT
 import Title from "../title/Title";
-import WideImage from "../image/WideImage";
-import SmallImage from "../image/SmallImage";
+import Image from "next/image";
 import Description from "../description/Description";
 import Date from "../date/Date";
 import BrowseAll from "../browseall/BrowseAll";
@@ -19,7 +18,7 @@ import Readmore from "../readmore/Readmore";
 
 const PageNews = ({ datas, header }) => {
   return (
-    <>
+    <div className={style.mainContainer}>
       <div className={style.headerDiv}>
         <h2 className={style.header}>{header}</h2>
       </div>
@@ -27,37 +26,31 @@ const PageNews = ({ datas, header }) => {
         {datas &&
           datas.map((data) => (
             <Link href="/" key={data.id}>
-              <div
-                className={data.id === 1 ? style.contentDiv1 : style.contentDiv}
-              >
-                <div
-                  className={data.id === 1 ? style.titleDiv1 : style.titleDiv}
-                >
-                  <Title title={data.title} />
-                  <div className={style.description}>
-                    <Description
-                      description={data.description.slice(0, 150)}
-                      more="..."
-                    />
-                  </div>
-                  <Date date={data.date} />
-                  
+              <div className={style.contentDiv}>
+                <div className={style.imageDiv}>
+                  <Image
+                    layout="fill"
+                    className={style.image}
+                    src={data.image}
+                    alt=""
+                  />
                 </div>
-                <div
-                  className={data.id === 1 ? style.imageDiv1 : style.imageDiv}
-                >
-                  {data.id === 1 ? (
-                    <WideImage image={data.image} />
-                  ) : (
-                    <SmallImage image={data.image} />
-                  )}
+                <div className={style.titleDiv}>
+                  <h2 className={style.title}>{data.title}</h2>
+                  <div className={style.description}>
+                    <p className={style.text}>
+                      {data.description.slice(0, 100)} ...
+                      
+                    </p>
+                  </div>
+                  {/* <Date date={data.date} /> */}
                 </div>
               </div>
             </Link>
             // </div>
           ))}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import { Grid } from "@mui/material";
 import style from "../../../styles/news.module.css"
 // COMPONENTS IMPORT
-import PageNews from "../../components/detailpage/NewsDetail";
+import PageNews from "../../components/pagenews/PageNews";
 import SideviewOne from "../../components/sideviewone/SideviewOne";
 import Mostview from "../../components/mostview/Mostview";
 import Sidebar from "../../components/sidebar/Sidebar";
@@ -122,7 +122,7 @@ const News = () => {
           <PageNews datas={data.slice(0, 4)} header="Jobs Update" />
         </Grid>
         <Grid items lg={4} md={12} sm={12} xs={12} className={style.secondGrid} >
-          <SideviewOne datas={data.slice(0, 4)}header="Entertianment" />
+          <SideviewOne datas={data.slice(0, 4)} header="Entertianment" />
         </Grid>
       </Grid>
       {/* END OF 2ND HEADER */}

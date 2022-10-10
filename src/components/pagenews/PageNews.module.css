@@ -1,4 +1,58 @@
+.mainContainer {
+  padding: 10px 60px
+}
+.contentDiv {
+  display: flex;
+  flex-direction: row;
 
-.secondGrid {
-    padding: 0px 10px;
+}
+
+.imageDiv {
+  width: 40%;
+  height: 160px;
+  margin: 10px auto;
+  position: relative;
+}
+.titleDiv {
+  width: 60%;
+  margin: 0px 20px;
+}
+
+.image {
+  object-fit: cover;
+  width: 100%;
+
+  /* height: 180px; */
+}
+
+.title {
+  font-family: var(---poppins);
+  font-size: 22px;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+
+.text {
+  font-family: var(---poppins);
+  color: #748493;
+  letter-spacing: 1px;
+}
+
+
+@media screen and (max-width: 600px) {
+  .mainContainer {
+    padding: 10px
   }
+  .imageDiv {
+      height: 100px;
+    }
+
+    .title {
+      font-size: 20px;
+  }
+  .description {
+    display: none;
+  }
+
+}
