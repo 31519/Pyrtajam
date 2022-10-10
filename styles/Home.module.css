@@ -127,3 +127,18 @@
     filter: invert(1);
   }
 }
+
+
+.grid {
+  /* border:1px solid gray */
+  align-items:start;
+  border-left: 1px solid #b3acac6e;
+}
+
+.mainContainer{
+  display: flex;
+}
+
+.secondGrid {
+  padding: 0px 10px;
+}

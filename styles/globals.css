@@ -2,25 +2,58 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+  /* background: green; */
+  /* font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
+    Bitstream Vera Sans Mono, Courier New, monospace; */
+  font-family: "Roboto", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* background: rgb(48, 47, 47) */
+  /* font-family: 'Poppins', sans-serif; */
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
+:root {
+  --mainFont: "Abyssinica SIL", serif, "Roboto", -apple-system,
+    BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+
+  /* sidebar root */
+  --sidebarFontSide: 16px;
+  --sidebarFontColor: black;
+  --sidebarBackgroundColor: rgb(217, 217, 225);
+
+  --roboto400: "Roboto", sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  --inter: "Abyssinica SIL", serif -apple-system, BlinkMacSystemFont, Segoe UI,
+    Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    sans-serif;
+  --poppins: "Poppins", sans-serif;
+  --titleList: 20px;
+  --titleListColor: #343333;
+  --titleListFont: 700;
+  --titleListMobile: 20px;
+  --titleLetterSpacing: 2px;
+  --titleLineHeight: 1.3;
+
+  --detailTitleSize: 40px;
+  --detailTitleSizeMobile: 30px;
+  --detailTitleLineHeight: 1.3;
+  --categoryFontSize: 16px;
+  --titleListFontWeight: 700;
+
+  --contentFontWeight: 300;
+  --contentColor: #2b2a2a;
+  --contentFontSize: 18px;
+  --contentFontSizeMobile: 16px;
 }
 
 a {
-  color: inherit;
   text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
 }

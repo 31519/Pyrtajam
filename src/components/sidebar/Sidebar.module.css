@@ -1,0 +1,139 @@
+.container {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    background-color: var(--sidebarBackgroundColor);
+    height:60px;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.container {
+    position: fixed;
+}
+
+.dateDiv {
+    padding: 10px 10px;
+    cursor: pointer;
+}
+
+.dateText {
+    cursor: pointer;
+    margin:0;
+    font-size: 15px;
+}
+
+
+.ulDiv {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.list {
+    text-decoration: none;
+    list-style: none;
+    padding: 10px 10px;
+    border-radius: 10px;
+    cursor:pointer
+
+}
+
+.list:hover {
+    background-color: aliceblue;
+}
+
+.iconDiv {
+    display: flex;
+    flex-direction: row;
+    padding: 10px 10px;
+    justify-content: space-around;
+}
+
+.searchDiv {
+    padding: 10px 10px;
+}
+
+.hamburgerDiv {
+    padding: 10px 10px;
+}
+
+.hight {
+    height: 60px;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--sidebarFontColor);
+}
+
+/* Sidebar */
+.sidebarClose {
+    display: none;
+
+}
+
+
+
+
+/* Sidebar */
+.sidebarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: #c2c7ca6e;
+    transition: transform 300ms ease-in-out 0s;
+    z-index: 11;
+}
+
+.sidebarDiv {
+    background-color: #131f22;
+    width: 70%;
+}
+
+.closeDiv {
+    padding: 20px;
+    cursor: pointer;
+}
+
+.sidebarlist {
+    text-decoration: none;
+    list-style: none;
+    padding: 10px 10px;
+    cursor:pointer;
+    display: flex;
+    flex-direction: start;
+
+}
+.sidebarlist:hover {
+    background-color: rgb(22, 142, 120);
+}
+
+.sidebarUl {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding: 0;
+}
+.sidebarlink{
+    color:white;
+
+}
+
+@media screen and (max-width: 600px) {
+    .ulDiv {
+        display: none;
+    
+    }
+
+
+  }
