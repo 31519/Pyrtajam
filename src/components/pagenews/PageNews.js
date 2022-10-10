@@ -9,6 +9,7 @@ import Description from "../description/Description";
 import Date from "../date/Date";
 import BrowseAll from "../browseall/BrowseAll";
 import Readmore from "../readmore/Readmore";
+import Paginate from "../paginate/Paginate";
 
 {
   /* className={
@@ -17,6 +18,7 @@ import Readmore from "../readmore/Readmore";
 }
 
 const PageNews = ({ datas, header }) => {
+
   return (
     <div className={style.mainContainer}>
       <div className={style.headerDiv}>
@@ -43,13 +45,14 @@ const PageNews = ({ datas, header }) => {
                       
                     </p>
                   </div>
-                  {/* <Date date={data.date} /> */}
+                  <Date date={data.date} />
                 </div>
               </div>
             </Link>
             // </div>
           ))}
       </div>
+      <Paginate resPerPage={8} count={12} />
     </div>
   );
 };

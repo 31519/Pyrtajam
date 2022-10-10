@@ -8,6 +8,7 @@ import Mostview from "../../components/mostview/Mostview";
 import Sidebar from "../../components/sidebar/Sidebar";
 import SliderFramework from "../../components/sliderframework/SliderFramework";
 import Footer from "../../components/footer/Footer";
+import Paginate from "../../components/paginate/Paginate";
 
 
 const data = [
@@ -119,7 +120,7 @@ const News = () => {
       {/* # 2ND HEADER */}
       <Grid container className={style.secondContainer} >
         <Grid items lg={8} md={12} sm={12} xs={12} className={style.secondGrid} >
-          <PageNews datas={data.slice(0, 4)} header="Jobs Update" />
+          <PageNews datas={data.slice(0, 8)} header="Jobs Update" />
         </Grid>
         <Grid items lg={4} md={12} sm={12} xs={12} className={style.secondGrid} >
           <SideviewOne datas={data.slice(0, 4)} header="Entertianment" />
