@@ -3,20 +3,22 @@ import Image from "next/image";
 import Link from "next/link";
 import style from "./Mostview.module.css";
 
-const Mostview = ({ datas, link }) => {
+const Mostview = ({ datas, link, loading, error }) => {
   return (
     <>
       <div className={style.container}>
+        {loading && (
+          <div>Loading...</div>
+        )}
+        {error && (
+          <div>Error...</div>
+        )}
         {datas &&
           datas.map((data) => (
             <>
-              <Link href={`/${link}/${data.title}/${data.id}`}>
+              {/* <Link href={`/${link}/${data.title}/${data.id}`}> */}
                 <div key={data.id} className={style.contentDiv}>
-                  <div className={style.textDiv}>
-                    <h2 className={style.textTitle}>
-                      {data.title.slice(0, 49)}...
-                    </h2>
-                  </div>
+
                   <div className={style.imageDiv}>
                     <Image
                       layout="fill"
@@ -25,8 +27,14 @@ const Mostview = ({ datas, link }) => {
                       alt=""
                     />
                   </div>
+                  <div className={style.textDiv}>
+                    <h2 className={style.textTitle}>
+                      {/* {data.title.slice(0, 49)}... */}
+                      {data.name}
+                    </h2>
+                  </div>
                 </div>
-              </Link>
+              {/* </Link> */}
             </>
           ))}
       </div>

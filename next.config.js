@@ -17,3 +17,10 @@ module.exports = {
       // }
     },
   }
+
+  module.exports = {
+    // reactStrictMode=true,
+    images: {
+      domains: ['rickandmortyapi.com', 'https://rickandmortyapi.com', 'inmatown.com', 'www.inmatown.com', 'https://37.44.247.84', '37.44.247.84',' http://greenboat.online', 'greenboat.online'],
+    },
+  }

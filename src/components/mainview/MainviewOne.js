@@ -53,8 +53,9 @@ const MainviewOne = ({ datas, header }) => {
                 </div>
               </div>
             </Link>
-            // </div>
+            
           ))}
+          {datas[0].title}
         <BrowseAll link="/" />
       </div>
     </>

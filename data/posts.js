@@ -1,15 +1,6 @@
-import React from "react";
-import { Grid } from "@mui/material";
-import style from "../../../styles/news.module.css"
-// COMPONENTS IMPORT
-import PageNews from "../../components/pagenews/PageNews";
-import SideviewOne from "../../components/sideviewone/SideviewOne";
-import Mostview from "../../components/mostview/Mostview";
-import Sidebar from "../../components/sidebar/Sidebar";
-import SliderFramework from "../../components/sliderframework/SliderFramework";
-import Footer from "../../components/footer/Footer";
 
-const data = [
+
+export const posts = [
     {
       id: 1,
       title: "this is the first data for this test app  as long as we are here",
@@ -107,34 +98,3 @@ const data = [
       date: "Jun 4, 2021",
     },
   ];
-
-const News = () => {
-  return (
-    <>
-      <Sidebar />
-      <Mostview datas={data} link="news" />
-
-      
-      {/* # 2ND HEADER */}
-      <Grid container className={style.secondContainer} >
-        <Grid items lg={8} md={12} sm={12} xs={12} className={style.secondGrid} >
-          <PageNews datas={data.slice(0, 8)} header="Jobs Update" link="news" />
-        </Grid>
-        <Grid items lg={4} md={12} sm={12} xs={12} className={style.secondGrid} >
-          <SideviewOne datas={data.slice(0, 4)} header="Entertianment" />
-        </Grid>
-      </Grid>
-      {/* END OF 2ND HEADER */}
-      {/* # 3RD HEADER (slider) */}
-
-      <SliderFramework datas1={data.slice(0, 4)} header1="News"  link1="news" />
-
-      {/* END OF 3RD HEADER */}
-
-      {/* Footer */}
-      <Footer />
-    </>
-  );
-};
-
-export default News;

@@ -1,12 +1,16 @@
 import React from 'react'
-
+import { Grid } from "@mui/material";
+import style from "../../../../styles/detail.module.css"
+// COMPONENTS IMPORT
 
 // COMPONENTS IMPORT
 import Mostview from "../../../components/mostview/Mostview";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import SliderFramework from "../../../components/sliderframework/SliderFramework";
 import Footer from "../../../components/footer/Footer";
-
+import PageNews from "../../../components/pagenews/PageNews";
+import SideviewOne from "../../../components/sideviewone/SideviewOne";
+import Detail from "../../../components/detailpage/Detail";
 
 const data = [
     {
@@ -114,9 +118,16 @@ const NewsDetail = () => {
       <Sidebar />
       <Mostview datas={data} link="news" />
 
-      <p>this is the main detail</p>
-      {/* # 3RD HEADER (slider) */}
-
+      {/* # 2ND HEADER */}
+      <Grid container className={style.secondContainer} >
+        <Grid items lg={8} md={12} sm={12} xs={12} className={style.secondGrid} >
+          <Detail datas={data[0]} header="Jobs Update" />
+        </Grid>
+        <Grid items lg={4} md={12} sm={12} xs={12} className={style.secondGrid} >
+          <SideviewOne datas={data.slice(0, 4)} header="Entertianment" />
+        </Grid>
+      </Grid>
+      {/* END OF 2ND HEADER */}
       <SliderFramework/>
 
       {/* END OF 3RD HEADER */}

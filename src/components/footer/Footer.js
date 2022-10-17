@@ -2,13 +2,16 @@ import React from "react";
 import style from "./Footer.module.css";
 import MediaIcon from "../mediaicon/MediaIcon";
 import Link from "next/link";
+import Image from "next/image"
 
 function Footer() {
   return (
     <footer className={style.container}>
       {/* 1st div */}
       <div className={style.firstDiv}>
-        <div>PYRTAJAM</div>
+        <div className={style.imageDiv}>
+          <Image src="/pyrtalogo.png" alt="pyrtajam" layout="fill" className={style.image} />
+        </div>
         <div>
           <MediaIcon />
         </div>

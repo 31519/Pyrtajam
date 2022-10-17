@@ -26,7 +26,7 @@ body {
   /* sidebar root */
   --sidebarFontSide: 16px;
   --sidebarFontColor: black;
-  --sidebarBackgroundColor: rgb(217, 217, 225);
+  --sidebarBackgroundColor: rgb(188, 233, 251);
 
   --roboto400: "Roboto", sans-serif, -apple-system, BlinkMacSystemFont, Segoe UI,
     Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,

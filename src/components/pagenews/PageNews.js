@@ -17,7 +17,7 @@ import Paginate from "../paginate/Paginate";
             } */
 }
 
-const PageNews = ({ datas, header }) => {
+const PageNews = ({ datas, header, link }) => {
 
   return (
     <div className={style.mainContainer}>
@@ -27,7 +27,7 @@ const PageNews = ({ datas, header }) => {
       <div className={style.container}>
         {datas &&
           datas.map((data) => (
-            <Link href="/" key={data.id}>
+            <Link href={`${link}/${data.title}/${data.id}`} key={data.id}>
               <div className={style.contentDiv}>
                 <div className={style.imageDiv}>
                   <Image

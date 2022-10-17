@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import style from "./Sidebar.module.css";
-import SearchIcon from "@mui/icons-material/Search";
+
 import MenuIcon from "@mui/icons-material/Menu";
 import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
-import MediaIcon from '../mediaicon/MediaIcon'
+import MediaIcon from "../mediaicon/MediaIcon";
+import SearchBox from "../searchbox/SearchBox";
 
 const sidebarLink = [
   {
@@ -39,35 +40,35 @@ const sidebarLink = [
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
-  const [dateState, setDateState] = useState(new Date())
+  const [dateState, setDateState] = useState(new Date());
 
   const openSidebarHandler = () => {
     setSidebar(!sidebar);
   };
 
-  useEffect (() => {
-    setInterval(()=> setDateState(new Date()), 30000)
-  }, [])
+  useEffect(() => {
+    setInterval(() => setDateState(new Date()), 30000);
+  }, []);
 
   return (
     <header>
       <div className={style.container}>
         <div className={style.dateDiv}>
-          <p className={style.dateText}>{''}
-          {dateState.toLocaleDateString('en-GB', {
-            day: "numeric",
-            month:"short",
-            year:"numeric"
-          })}
-          
+          <p className={style.dateText}>
+            {""}
+            {dateState.toLocaleDateString("en-GB", {
+              day: "numeric",
+              month: "short",
+              year: "numeric",
+            })}
           </p>
-          <p className={style.dateText}>{''}
-          {dateState.toLocaleString('en-US', {
-            hour: "numeric",
-            minute:"numeric",
-            hour12:"true"
-          })}
-          
+          <p className={style.dateText}>
+            {""}
+            {dateState.toLocaleString("en-US", {
+              hour: "numeric",
+              minute: "numeric",
+              hour12: "true",
+            })}
           </p>
         </div>
         <div className={style.listDiv}>
@@ -92,9 +93,9 @@ const Sidebar = () => {
         <div className={style.iconDiv}>
           <div className={style.searchDiv}>
             {sidebar === false ? (
-              <Link href="/">
-                <SearchIcon />
-              </Link>
+              <div>
+                <SearchBox />
+              </div>
             ) : (
               ""
             )}
@@ -105,7 +106,6 @@ const Sidebar = () => {
         </div>
         {/* Side bar */}
 
-
         <div
           className={
             sidebar === true ? style.sidebarContainer : style.sidebarClose
@@ -113,7 +113,7 @@ const Sidebar = () => {
         >
           {/* Only the list in the sidebar view */}
           <div className={style.sidebarDiv}>
-            <MediaIcon/>
+            <MediaIcon />
             <ul className={style.sidebarUl}>
               {sidebarLink.map((sidebar) => (
                 <li key={sidebar.title} className={style.sidebarlist}>
