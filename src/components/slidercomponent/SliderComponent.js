@@ -58,4 +58,5 @@ const SliderComponent = ({ datas, header, link }) => {
   );
 };
 
+
 export default SliderComponent;

@@ -1,12 +1,15 @@
 .mainContainer {
   margin: 10px;
   width: 300px;
+  /* scroll-snap-type: x mandatory; */
 }
 
 .contentDiv {
   display: flex;
   border-bottom: 1px solid rgba(226, 222, 222, 0.808);
   cursor: pointer;
+  /* scroll-snap-align: start;
+  scroll-snap-stop: always */
 }
 .titleDiv {
   width: 100%;

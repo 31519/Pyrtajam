@@ -11,6 +11,7 @@
     padding-top: 10px;
     width: 80%;
     margin: 10px auto;
+    scroll-snap-type: x mandatory;
   }
   
   .sliderContent {
@@ -18,6 +19,8 @@
     position: relative;
     transition: all 750ms ease;
     border-left: 1px solid #d7cdcd;
+    scroll-snap-align: center;
+    scroll-snap-stop: always
   
   }
   

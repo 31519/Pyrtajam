@@ -6,6 +6,7 @@ import Link from "next/link";
 import CloseIcon from "@mui/icons-material/Close";
 import MediaIcon from "../mediaicon/MediaIcon";
 import SearchBox from "../searchbox/SearchBox";
+import Image from "next/image";
 
 const sidebarLink = [
   {
@@ -40,6 +41,7 @@ const sidebarLink = [
 
 const Sidebar = () => {
   const [sidebar, setSidebar] = useState(false);
+
   const [dateState, setDateState] = useState(new Date());
 
   const openSidebarHandler = () => {
@@ -54,22 +56,30 @@ const Sidebar = () => {
     <header>
       <div className={style.container}>
         <div className={style.dateDiv}>
-          <p className={style.dateText}>
-            {""}
-            {dateState.toLocaleDateString("en-GB", {
-              day: "numeric",
-              month: "short",
-              year: "numeric",
-            })}
-          </p>
-          <p className={style.dateText}>
-            {""}
-            {dateState.toLocaleString("en-US", {
-              hour: "numeric",
-              minute: "numeric",
-              hour12: "true",
-            })}
-          </p>
+          <div className={style.imageDiv}>
+            <Image
+              src="/Pyrtajam.png"
+              alt="pyrtajam"
+              layout="fill"
+              className={style.image}
+            />
+          </div>
+          {/* <p className={style.dateText}>
+              {""}
+              {dateState.toLocaleDateString("en-GB", {
+                day: "numeric",
+                month: "short",
+                year: "numeric",
+              })}
+            </p> */}
+          {/* <p className={style.dateText}>
+              {""}
+              {dateState.toLocaleString("en-US", {
+                hour: "numeric",
+                minute: "numeric",
+                hour12: "true",
+              })}
+            </p> */}
         </div>
         <div className={style.listDiv}>
           <ul className={style.ulDiv}>

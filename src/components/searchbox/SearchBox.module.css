@@ -1,3 +1,8 @@
+.container {
+    display: flex;
+    justify-content: end;
+}
+
 .searchBox {
     /* position:absolute; */
     /* top:50%;
@@ -38,14 +43,15 @@
 
 }
 
-.searchBox:hover > .searchInput,
+/* .searchBox:hover > .searchInput,
 .searchInput:focus {
-    width: 180px;
+    width: 200px;
     margin: 0px 8px;
-}
+} */
 
 .searchBox:hover > .searchBtn,
 .searchInput:focus + .searchBtn {
     /* background: #22ffc0;
     color: #101010; */
 }
+
