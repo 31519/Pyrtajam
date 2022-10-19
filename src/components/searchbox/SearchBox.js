@@ -27,7 +27,7 @@ function SearchBox() {
       } else {
         path = ""
       }
-      let searchQuery = `${router.pathname}${path}/?category=${category}&keyword=${keyword}&page=${page=1}`;
+      let searchQuery = `${router.pathname}${path}/?category=${cat}&keyword=${keyword}&page=${page=1}`;
       router.push(searchQuery);
       console.log("keyword", router.pathname)
     } else {
