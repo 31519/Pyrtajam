@@ -5,6 +5,7 @@ import Image from "next/image";
 import style from "../../styles/Home.module.css";
 import { Grid } from "@mui/material";
 import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
 // COMPONENTS IMPORT
 import Mostview from "../components/mostview/Mostview";
 import MetaScreen from "../components/metatags/MetaScreen";
@@ -19,7 +20,7 @@ import StaticCategory from "../components/staticCategory/StaticCategory";
 
 // GRAPHQL IMPORT
 
-import { useCharacters } from "../../graphql/queries";
+import { GET_CHARACTERS } from "../../graphql/queries";
 
 const data = [
   {
@@ -122,33 +123,29 @@ const data = [
 ];
 
 export default function Home() {
+
   const {
     loading: charactersLoading,
     error: charactersError,
     data: charactersData,
-  } = useCharacters();
+  } = useQuery(GET_CHARACTERS, {
+    variables: {
+      "name": "Rick",
+      "status":"Alive"
+    }
+  });
   const router = useRouter();
-  // const {loading, error, data} = useQuery(GET_POST)
   const [characters, setCharacters] = useState([])
 
-  // console.log("data", data)
+
   useEffect(() => {
       if (charactersData) {
         setCharacters(charactersData.characters.results)
       }
   }, [charactersData]);
 
-  console.log("data", characters)
 
 
-  console.log("datas", charactersData)
-  // console.log("datass", datass)
-  // if(charactersLoading){
-  //   return "loading"
-  // }
-  // if(charactersError){
-  //   return "error"
-  // }
 
   return (
     <>

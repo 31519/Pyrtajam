@@ -2,8 +2,8 @@ import {gql} from "@apollo/client"
 import { useQuery } from "@apollo/client";
 
 export const GET_CHARACTERS = gql `
-query {
-  characters {
+query GetCharacters ($name: String!, $status:String!) {
+  characters(filter:{name:$name, status:$status} ) {
     info {
       count
     }
@@ -21,9 +21,25 @@ query {
 }
 `
 
-export const useCharacters = () => {
-  const {loading, error, data} = useQuery(GET_CHARACTERS)
+// export const useCharacters = () => {
+//   const {loading, error, data} = useQuery(GET_CHARACTERS)
 
+//   return {
+//     loading,
+//     error,
+//     data
+//   }
+// }
+
+const GET_CHARACTER = gql `
+query  {
+  character(id: "1") {
+    name
+  }
+}
+`
+export const useCharacter = () => {
+  const {loading, error, data} = useQuery(GET_CHARACTER)
   return {
     loading,
     error,

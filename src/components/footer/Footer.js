@@ -28,7 +28,7 @@ function Footer() {
               <Link className={style.link} href="/">
                 <li className={style.secondList}>Entertainment</li>
               </Link>
-              <Link className={style.link} href="/">
+              <Link className={style.link} href={`/news/?category=Morty&keyword=`}>
                 <li className={style.secondList}>Sport</li>
               </Link>
               <Link className={style.link} href="/">

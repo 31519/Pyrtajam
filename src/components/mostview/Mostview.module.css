@@ -6,6 +6,7 @@
   padding-top: 10px;
   background-color: #a2b0e54d;
   border: 1px solid #cfc4c494;
+  scroll-snap-type: x mandatory;
 
 }
 
@@ -18,7 +19,10 @@
   margin: 5px;
   justify-content: center;
   align-items: center;
-  cursor:pointer
+  cursor:pointer;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+
 }
 
 .textDiv {

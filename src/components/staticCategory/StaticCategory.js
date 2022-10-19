@@ -37,11 +37,13 @@ function StaticCategory() {
   return (
     <div className={style.container}>
       {category.map((cat) => (
+        <div  key={cat.title}  className={style.contentMap}>
         <Link key={cat.title} href={cat.link}>
           <div className={style.content}>
               <p className={style.text}>{cat.title}</p>
           </div>
         </Link>
+        </div>
       ))}
     </div>
   );

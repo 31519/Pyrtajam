@@ -8,11 +8,12 @@
   width: 100%;
 
 
-
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
 }
+
+
 
 .text {
   font-family: var(---poppins);
@@ -29,6 +30,7 @@
   background-color: #2d2b2b;
   justify-content: center;
   margin: 10px;
+
 
   ;
 }
