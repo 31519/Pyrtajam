@@ -118,8 +118,13 @@ const News = () => {
   const [cat, setCat] = useState("")
   const [characters, setCharacters] = useState([])
   const { category, keyword, page } = router.query;
-  console.log("category", category);
-  console.log("keyword", keyword);
+  // if(category) {
+  //   setCat(category)
+  // } else {
+  //   setCat("")
+  // }
+  // console.log("category", category);
+  // console.log("keyword", keyword);
 
 
   
@@ -130,7 +135,7 @@ const News = () => {
     refetch
   } = useQuery(GET_CHARACTERS, {
     variables: {
-      "name": `${category}`,
+      "name": `${cat}`,
       "status":`${keyword}`
     }
   });
