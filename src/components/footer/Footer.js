@@ -2,7 +2,7 @@ import React from "react";
 import style from "./Footer.module.css";
 import MediaIcon from "../mediaicon/MediaIcon";
 import Link from "next/link";
-import Image from "next/image"
+import Image from "next/image";
 
 function Footer() {
   return (
@@ -10,7 +10,14 @@ function Footer() {
       {/* 1st div */}
       <div className={style.firstDiv}>
         <div className={style.imageDiv}>
-          <Image src="/pyrtalogo.png" alt="pyrtajam" layout="fill" className={style.image} />
+          <Link className={style.link} href="/">
+            <Image
+              src="/pyrtalogo.png"
+              alt="pyrtajam"
+              layout="fill"
+              className={style.image}
+            />
+          </Link>
         </div>
         <div>
           <MediaIcon />
@@ -25,19 +32,34 @@ function Footer() {
           </div>
           <div className={style.secondListDiv}>
             <ul className={style.secondUl}>
-              <Link className={style.link} href="/">
+              <Link
+                className={style.link}
+                href={`/news/?category=Rick&keyword=`}
+              >
                 <li className={style.secondList}>Entertainment</li>
               </Link>
-              <Link className={style.link} href={`/news/?category=Morty&keyword=`}>
+              <Link
+                className={style.link}
+                href={`/news/?category=Morty&keyword=`}
+              >
                 <li className={style.secondList}>Sport</li>
               </Link>
-              <Link className={style.link} href="/">
+              <Link
+                className={style.link}
+                href={`/news/?category=Morty&keyword=`}
+              >
                 <li className={style.secondList}>Event</li>
               </Link>
-              <Link className={style.link} href="/">
+              <Link
+                className={style.link}
+                href={`/news/?category=Morty&keyword=`}
+              >
                 <li className={style.secondList}>Education</li>
               </Link>
-              <Link className={style.link} href="/">
+              <Link
+                className={style.link}
+                href={`/news/?category=Morty&keyword=`}
+              >
                 <li className={style.secondList}>Politics</li>
               </Link>
             </ul>
@@ -50,20 +72,29 @@ function Footer() {
           </div>
           <div className={style.secondListDiv}>
             <ul className={style.secondUl}>
-              <Link className={style.link} href="/news">
+              <Link
+                className={style.link}
+                href={`/news/?category=Morty&keyword=`}
+              >
                 <li className={style.secondList}>News</li>
               </Link>
-              <Link className={style.link} href="/">
-                <li className={style.secondList}>Sport</li>
+              <Link
+                className={style.link}
+                href={`/jobs/?category=Morty&keyword=`}
+              >
+                <li className={style.secondList}>Jobs</li>
               </Link>
-              <Link className={style.link} href="/">
-                <li className={style.secondList}>Event</li>
+              <Link
+                className={style.link}
+                href={`/jobs/?category=Morty&keyword=`}
+              >
+                <li className={style.secondList}>Notification</li>
               </Link>
-              <Link className={style.link} href="/">
-                <li className={style.secondList}>Education</li>
-              </Link>
-              <Link className={style.link} href="/">
-                <li className={style.secondList}>Politics</li>
+              <Link
+                className={style.link}
+                href={`/jobs/?category=Morty&keyword=`}
+              >
+                <li className={style.secondList}>Admit Card</li>
               </Link>
             </ul>
           </div>
@@ -80,15 +111,6 @@ function Footer() {
               </Link>
               <Link className={style.link} href="/privacy">
                 <li className={style.secondList}>Privacy Policy</li>
-              </Link>
-              <Link className={style.link} href="/">
-                <li className={style.secondList}>Event</li>
-              </Link>
-              <Link className={style.link} href="/">
-                <li className={style.secondList}>Education</li>
-              </Link>
-              <Link className={style.link} href="/">
-                <li className={style.secondList}>Politics</li>
               </Link>
             </ul>
           </div>

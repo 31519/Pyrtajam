@@ -10,24 +10,33 @@ import Image from "next/image";
 
 const sidebarLink = [
   {
-    title: "Home",
-    link: "/",
-  },
-  {
-    title: "Article",
-    link: "/",
-  },
-  {
     title: "News",
-    link: "/news",
+    link: "/news/?category=Rick&keyword=",
   },
   {
     title: "Jobs",
-    link: "/",
+    link: "/jobs/?category=Jobs&keyword=",
   },
   {
-    title: "Advertisement",
-    link: "/",
+    title: "Sport",
+    link: "/news/?category=Sport&keyword=",
+  },
+  {
+    title: "Politics",
+    link: "/news/?category=Politics&keyword=",
+  },
+  {
+    title: "Education",
+    link: "/news/?category=Educations&keyword=",
+  },
+  {
+    title: "Notification",
+    link: "/jobs/?category=Notification&keyword=",
+  },
+  
+  {
+    title: "Admit card",
+    link: "/jobs/?category=Admit card&keyword=",
   },
   {
     title: "About Us",
@@ -57,12 +66,14 @@ const Sidebar = () => {
       <div className={style.container}>
         <div className={style.dateDiv}>
           <div className={style.imageDiv}>
+            <Link href="/" className={style.link}>
             <Image
               src="/Pyrtajam.png"
               alt="pyrtajam"
               layout="fill"
               className={style.image}
             />
+            </Link>
           </div>
           {/* <p className={style.dateText}>
               {""}
@@ -89,12 +100,12 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className={style.list}>
-              <Link href="/">
-                <a className={style.link}>Article</a>
+              <Link href="/jobs/?category=Jobs&keyword=">
+                <a className={style.link}>Jobs</a>
               </Link>
             </li>
             <li className={style.list}>
-              <Link href="/">
+              <Link href="/news/?category=&keyword=">
                 <a className={style.link}>News</a>
               </Link>
             </li>

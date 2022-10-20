@@ -3,15 +3,18 @@ import Image from "next/image";
 import Link from "next/link";
 import style from "./Mostview.module.css";
 
+import MostViewSkeleton from "../skeleton/MostViewSkeleton"
+
+
 const Mostview = ({ datas, link, loading, error }) => {
   return (
     <>
       <div className={style.container}>
         {loading && (
-          <div>Loading...</div>
+          <MostViewSkeleton/>
         )}
         {error && (
-          <div>Error...</div>
+          <MostViewSkeleton/>
         )}
         {datas &&
           datas.map((data) => (

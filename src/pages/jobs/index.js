@@ -114,7 +114,7 @@ const data = [
   },
 ];
 
-const News = () => {
+const Jobs = () => {
   const router = useRouter();
   const [characters, setCharacters] = useState([]);
   const { category, keyword, page } = router.query;
@@ -147,11 +147,11 @@ const News = () => {
   return (
     <>
       <MetaScreen
-        pageTitle="Pyrtajam -- Recent News"
+        pageTitle="Pyrtajam -- Recent Jobs"
         description="Best one platform for news, Jobs, educations, notifications in India "
         previewImage="/Pyrtajam.png"
         siteName="www.pyrtajam.com"
-        currentURL="/aboutus"
+        currentURL="/jobs"
         twitterHandle="Pyrtajam"
       />
       <Sidebar />
@@ -165,7 +165,7 @@ const News = () => {
       {/* # 2ND HEADER */}
       <Grid container className={style.secondContainer}>
         <Grid items lg={8} md={12} sm={12} xs={12} className={style.secondGrid}>
-          <PageNews datas={data.slice(0, 8)} header="Jobs Update" link="news" />
+          <PageNews datas={data.slice(0, 8)} header="Jobs Update" link="jobs" />
         </Grid>
         <Grid items lg={4} md={12} sm={12} xs={12} className={style.secondGrid}>
           <SideviewOne datas={data.slice(0, 4)} header="Entertianment" />
@@ -184,4 +184,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default Jobs;

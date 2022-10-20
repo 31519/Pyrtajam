@@ -10,7 +10,9 @@ import Date from "../date/Date";
 import BrowseAll from "../browseall/BrowseAll";
 import Readmore from "../readmore/Readmore";
 import Paginate from "../paginate/Paginate";
+import SkeletonLoading from "../skeleton/SkeletonLoading"
 
+const loading = true
 {
   /* className={
               sidebar === true ? style.sidebarOpen : style.sidebarClose
@@ -25,9 +27,12 @@ const PageNews = ({ datas, header, link }) => {
         <h2 className={style.header}>{header}</h2>
       </div>
       <div className={style.container}>
+        {loading && (
+          <SkeletonLoading/>
+        )}
         {datas &&
           datas.map((data) => (
-            <Link href={`${link}/${data.title}/${data.id}`} key={data.id}>
+            <Link href={`${link}/${data.title}`} key={data.id}>
               <div className={style.contentDiv}>
                 <div className={style.imageDiv}>
                   <Image
@@ -49,7 +54,6 @@ const PageNews = ({ datas, header, link }) => {
                 </div>
               </div>
             </Link>
-            // </div>
           ))}
       </div>
       <Paginate resPerPage={8} count={12} />

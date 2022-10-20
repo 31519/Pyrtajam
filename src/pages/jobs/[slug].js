@@ -1,18 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Grid } from "@mui/material";
-import style from "../../../styles/news.module.css";
-import { useRouter } from "next/router";
-import { useQuery } from "@apollo/client";
+import style from "../../../styles/detail.module.css";
 // COMPONENTS IMPORT
-import PageNews from "../../components/pagenews/PageNews";
-import SideviewOne from "../../components/sideviewone/SideviewOne";
+
+// COMPONENTS IMPORT
 import Mostview from "../../components/mostview/Mostview";
 import Sidebar from "../../components/sidebar/Sidebar";
 import SliderFramework from "../../components/sliderframework/SliderFramework";
 import Footer from "../../components/footer/Footer";
+import PageNews from "../../components/pagenews/PageNews";
+import SideviewOne from "../../components/sideviewone/SideviewOne";
+import Detail from "../../components/detailpage/Detail";
 import MetaScreen from "../../components/metatags/MetaScreen";
-
-import { GET_CHARACTERS } from "../../../graphql/queries";
 
 const data = [
   {
@@ -114,40 +113,11 @@ const data = [
   },
 ];
 
-const News = () => {
-  const router = useRouter();
-  const [characters, setCharacters] = useState([]);
-  const { category, keyword, page } = router.query;
-  // if(category) {
-  //   setCat(category)
-  // } else {
-  //   setCat("")
-  // }
-  // console.log("category", category);
-  // console.log("keyword", keyword);
-
-  const {
-    loading: charactersLoading,
-    error: charactersError,
-    data: charactersData,
-    refetch,
-  } = useQuery(GET_CHARACTERS, {
-    variables: {
-      name: `${category}`,
-      status: `${keyword}`,
-    },
-  });
-  useEffect(() => {
-    if (charactersData) {
-      setCharacters(charactersData.characters.results);
-    }
-    refetch();
-  }, [charactersData, category, keyword, router, refetch]);
-
+const JobsDetail = () => {
   return (
     <>
       <MetaScreen
-        pageTitle="Pyrtajam -- Recent News"
+        pageTitle="Pyrtajam -- Detail Jobs"
         description="Best one platform for news, Jobs, educations, notifications in India "
         previewImage="/Pyrtajam.png"
         siteName="www.pyrtajam.com"
@@ -155,26 +125,19 @@ const News = () => {
         twitterHandle="Pyrtajam"
       />
       <Sidebar />
-      <Mostview
-        datas={characters}
-        loading={charactersLoading}
-        error={charactersError}
-        link="news"
-      />
+      <Mostview datas={data} link="news" />
 
       {/* # 2ND HEADER */}
       <Grid container className={style.secondContainer}>
         <Grid items lg={8} md={12} sm={12} xs={12} className={style.secondGrid}>
-          <PageNews datas={data.slice(0, 8)} header="Jobs Update" link="news" />
+          <Detail datas={data[0]} header="Jobs Update" />
         </Grid>
         <Grid items lg={4} md={12} sm={12} xs={12} className={style.secondGrid}>
           <SideviewOne datas={data.slice(0, 4)} header="Entertianment" />
         </Grid>
       </Grid>
       {/* END OF 2ND HEADER */}
-      {/* # 3RD HEADER (slider) */}
-
-      <SliderFramework datas1={data.slice(0, 4)} header1="News" link1="news" />
+      <SliderFramework />
 
       {/* END OF 3RD HEADER */}
 
@@ -184,4 +147,4 @@ const News = () => {
   );
 };
 
-export default News;
+export default JobsDetail;
