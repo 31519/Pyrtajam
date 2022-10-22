@@ -46,6 +46,10 @@ const sidebarLink = [
     title: "Privacy Policy",
     link: "/privacy",
   },
+  {
+    title: "Terms and Conditions",
+    link: "/termsandconditions",
+  },
 ];
 
 const Sidebar = () => {

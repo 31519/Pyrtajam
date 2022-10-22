@@ -1,6 +1,6 @@
 .container {
     background: white;
-    padding: 20px;
+    padding: 20px 0px;
     width: 100%;
     display: flex;
     word-break: break-word;
@@ -50,7 +50,7 @@
     
     .container {
         background: white;
-        padding: 10px;
+        padding: 10px 0px;
         width: 100%;
         display: flex;
     

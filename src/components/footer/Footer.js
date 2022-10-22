@@ -112,6 +112,9 @@ function Footer() {
               <Link className={style.link} href="/privacy">
                 <li className={style.secondList}>Privacy Policy</li>
               </Link>
+              <Link className={style.link} href="/termsandconditions">
+                <li className={style.secondList}>Terms ans Conditions</li>
+              </Link>
             </ul>
           </div>
           {/* end */}
