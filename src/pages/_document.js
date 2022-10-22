@@ -54,6 +54,8 @@ export default function Document() {
           rel="stylesheet"
         ></link>
 
+        <link rel="shortcut icon" href="/favicon.png" />
+
         {/* <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></meta> */}
       </Head>
       <body>

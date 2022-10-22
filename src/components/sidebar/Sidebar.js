@@ -33,7 +33,7 @@ const sidebarLink = [
     title: "Notification",
     link: "/jobs/?category=Notification&keyword=",
   },
-  
+
   {
     title: "Admit card",
     link: "/jobs/?category=Admit card&keyword=",
@@ -58,6 +58,14 @@ const Sidebar = () => {
   const [dateState, setDateState] = useState(new Date());
 
   const openSidebarHandler = () => {
+    // const open = document.querySelector(".sidebarContainer");
+    // open.style.left = "0px";
+    setSidebar(!sidebar);
+  };
+
+  const linkClickHandler = () => {
+    // const open = document.querySelector(".sidebarContainer");
+    // open.style.left = "0px";
     setSidebar(!sidebar);
   };
 
@@ -71,12 +79,12 @@ const Sidebar = () => {
         <div className={style.dateDiv}>
           <div className={style.imageDiv}>
             <Link href="/" className={style.link}>
-            <Image
-              src="/Pyrtajam.png"
-              alt="pyrtajam"
-              layout="fill"
-              className={style.image}
-            />
+              <Image
+                src="/Pyrtajam.png"
+                alt="pyrtajam"
+                layout="fill"
+                className={style.image}
+              />
             </Link>
           </div>
           {/* <p className={style.dateText}>
@@ -135,17 +143,19 @@ const Sidebar = () => {
           className={
             sidebar === true ? style.sidebarContainer : style.sidebarClose
           }
+          onClick={linkClickHandler}
         >
+          {/* <div className={style.sidebarContainer}> */}
           {/* Only the list in the sidebar view */}
           <div className={style.sidebarDiv}>
             <MediaIcon />
             <ul className={style.sidebarUl}>
               {sidebarLink.map((sidebar) => (
-                <li key={sidebar.title} className={style.sidebarlist}>
-                  <Link href={sidebar.link}>
+                <Link  key={sidebar.title} href={sidebar.link}>
+                  <li className={style.sidebarlist}>
                     <a className={style.sidebarlink}>{sidebar.title}</a>
-                  </Link>
-                </li>
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>

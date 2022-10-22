@@ -16,15 +16,15 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 const icons = [
   {
     image: "/icon/whatsapp-1.svg",
-    link: "/",
+    link: "https://wa.me/9366993068",
   },
   {
     image: "/icon/instagram.svg",
-    link: "/",
+    link: "https://www.instagram.com/inmatown/",
   },
   {
     image: "/icon/facebook.svg",
-    link: "/",
+    link: "http://www.facebook.com/memelanderofficial/",
   },
   {
     image: "/icon/youtube.svg",
@@ -32,16 +32,17 @@ const icons = [
   },
   {
     image: "/icon/telegram.svg",
-    link: "/",
+    link: "https://t.me/MeghalayaJob",
   },
 ];
+
 
 const MediaIcon = () => {
   return (
     <div className={style.container}>
       {icons &&
         icons.map((icon) => (
-          <Link key={icon.link} className={style.link} href={icon.link}>
+          <a key={icon.link} className={style.link} href={icon.link} target="_blank" rel="noreferrer"  >
             <div key={icon.link} className={style.icon1}>
               <Image
                 layout="fill"
@@ -50,7 +51,7 @@ const MediaIcon = () => {
                 alt=""
               />
             </div>
-          </Link>
+          </a>
         ))}
     </div>
   );

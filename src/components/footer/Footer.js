@@ -4,6 +4,13 @@ import MediaIcon from "../mediaicon/MediaIcon";
 import Link from "next/link";
 import Image from "next/image";
 
+const brand = [
+  {
+    logo:"/brand/crfeeds.png",
+    title: "CRfeeds"
+  }
+]
+
 function Footer() {
   return (
     <footer className={style.container}>
@@ -119,7 +126,23 @@ function Footer() {
           </div>
           {/* end */}
         </div>
-        <div className={style.brand}>this is the brand</div>
+        <div className={style.brand}>
+          <div className={style.secondHeader}>
+            <h2 className={style.secondHeaderText}>Brand</h2>
+          </div>
+          <div>
+            {brand.map((p) => (
+              <div key={p.title} className={style.logoDiv}>
+                <div className={style.logoImageDiv}>
+                  <Image src={p.logo} alt={p.title} layout="fill" />
+                </div>
+                <span>
+                  <p className={style.logoName}>{p.title}</p>
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       {/* 3rd div */}
       <div className={style.thirdDiv}>
