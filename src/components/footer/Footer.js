@@ -8,7 +8,12 @@ const brand = [
   {
     logo:"/brand/crfeeds.png",
     title: "CRfeeds"
-  }
+  },
+  {
+    logo:"/brand/pyrtajam.png",
+    title: "Pyrtajam"
+  },
+  
 ]
 
 function Footer() {
@@ -130,7 +135,7 @@ function Footer() {
           <div className={style.secondHeader}>
             <h2 className={style.secondHeaderText}>Brand</h2>
           </div>
-          <div>
+          <div className={style.logoContainer}>
             {brand.map((p) => (
               <div key={p.title} className={style.logoDiv}>
                 <div className={style.logoImageDiv}>

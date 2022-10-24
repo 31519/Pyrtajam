@@ -132,9 +132,11 @@
 
 /* brand */
 
-.brand{
-
+.logoContainer{
+  display: flex;
 }
+
+
 .logoDiv{
   width: 50%;
   margin: 10px;
