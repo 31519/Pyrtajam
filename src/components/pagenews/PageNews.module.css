@@ -12,6 +12,7 @@
   height: 160px;
   margin: 10px auto;
   position: relative;
+  background: linear-gradient(225deg, #06fd7d, #16d0e1);
 }
 .titleDiv {
   width: 60%;

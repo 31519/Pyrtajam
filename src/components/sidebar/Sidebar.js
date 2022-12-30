@@ -11,15 +11,15 @@ import Image from "next/image";
 const sidebarLink = [
   {
     title: "News",
-    link: "/news/?category=Rick&keyword=",
+    link: "/news/?category=News",
   },
   {
     title: "Jobs",
-    link: "/jobs/?category=Jobs&keyword=",
+    link: "/news/?category=Jobs",
   },
   {
     title: "Sport",
-    link: "/news/?category=Sport&keyword=",
+    link: "/news/?category=Sports",
   },
   {
     title: "Politics",
@@ -31,12 +31,12 @@ const sidebarLink = [
   },
   {
     title: "Notification",
-    link: "/jobs/?category=Notification&keyword=",
+    link: "/news/?category=Notification&keyword=",
   },
 
   {
     title: "Admit card",
-    link: "/jobs/?category=Admit card&keyword=",
+    link: "/news/?category=AdmitCard&keyword=",
   },
   {
     title: "About Us",
@@ -112,12 +112,12 @@ const Sidebar = () => {
               </Link>
             </li>
             <li className={style.list}>
-              <Link href="/jobs/?category=Jobs&keyword=">
+              <Link href="/news/?category=Jobs&keyword=">
                 <a className={style.link}>Jobs</a>
               </Link>
             </li>
             <li className={style.list}>
-              <Link href="/news/?category=&keyword=">
+              <Link href="/news/?category=News&keyword=">
                 <a className={style.link}>News</a>
               </Link>
             </li>
@@ -134,34 +134,48 @@ const Sidebar = () => {
             )}
           </div>
           <div className={style.hamburgerDiv} onClick={openSidebarHandler}>
-            {sidebar === false ? <MenuIcon /> : ""}
+            <div className={style.hamDiv}>
+              <div
+                className={sidebar === false ? style.ham1 : style.hamclose1}
+              ></div>
+              <div
+                className={sidebar === false ? style.ham2 : style.hamclose2}
+              ></div>
+              <div
+                className={sidebar === false ? style.ham3 : style.hamclose3}
+              ></div>
+            </div>
           </div>
-        </div>
-        {/* Side bar */}
+          {/*  <MenuIcon /> */}
+          {/* Side bar */}
 
-        <div
-          className={
-            sidebar === true ? style.sidebarContainer : style.sidebarClose
-          }
-          onClick={linkClickHandler}
-        >
-          {/* <div className={style.sidebarContainer}> */}
-          {/* Only the list in the sidebar view */}
-          <div className={style.sidebarDiv}>
-            <MediaIcon />
-            <ul className={style.sidebarUl}>
-              {sidebarLink.map((sidebar) => (
-                <Link  key={sidebar.title} href={sidebar.link}>
-                  <li className={style.sidebarlist}>
-                    <a className={style.sidebarlink}>{sidebar.title}</a>
-                  </li>
-                </Link>
-              ))}
-            </ul>
-          </div>
-          {/* End of sidebar list */}
-          <div className={style.closeDiv} onClick={openSidebarHandler}>
-            <CloseIcon />
+          <div
+            className={
+              sidebar === true ? style.sidebarContainer : style.sidebarClose
+            }
+            onClick={linkClickHandler}
+          >
+            {/* <div className={style.sidebarContainer}> */}
+            {/* Only the list in the sidebar view */}
+            <div className={style.sidebarDiv}>
+              <MediaIcon />
+              <ul className={style.sidebarUl}>
+                {sidebarLink.map((sidebar) => (
+                  <Link
+                    key={sidebar.title}
+                    href={sidebar.link}
+                  >
+                    <li className={style.sidebarlist} >
+                      <a className={style.sidebarlink}>{sidebar.title}</a>
+                    </li>
+                  </Link>
+                ))}
+              </ul>
+            </div>
+            {/* End of sidebar list */}
+            {/* <div className={style.closeDiv} onClick={openSidebarHandler}>
+              <CloseIcon />
+            </div> */}
           </div>
         </div>
       </div>

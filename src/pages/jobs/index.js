@@ -12,7 +12,7 @@ import SliderFramework from "../../components/sliderframework/SliderFramework";
 import Footer from "../../components/footer/Footer";
 import MetaScreen from "../../components/metatags/MetaScreen";
 
-import { GET_CHARACTERS } from "../../../graphql/queries";
+import { GET_FEEDS, GET_JOBS } from "../../../graphql/queries";
 
 const data = [
   {
@@ -118,6 +118,9 @@ const Jobs = () => {
   const router = useRouter();
   const [characters, setCharacters] = useState([]);
   const { category, keyword, page } = router.query;
+
+  const [feeds, setFeeds] = useState([]);
+  const [jobs, setJobs] = useState([]);
   // if(category) {
   //   setCat(category)
   // } else {
@@ -126,23 +129,44 @@ const Jobs = () => {
   // console.log("category", category);
   // console.log("keyword", keyword);
 
+  // Feeds
   const {
-    loading: charactersLoading,
-    error: charactersError,
-    data: charactersData,
-    refetch,
-  } = useQuery(GET_CHARACTERS, {
+    loading: feedsLoading,
+    error: feedsError,
+    data: feedsData,
+    refetch: feedsRefetch,
+  } = useQuery(GET_FEEDS, {
     variables: {
-      name: `${category}`,
-      status: `${keyword}`,
+      title: "",
     },
   });
+
+  // Jobs
+  const {
+    loading: jobsLoading,
+    error: jobsError,
+    data: jobsData,
+    refetch: jobsRefetch,
+  } = useQuery(GET_JOBS, {
+    variables: {
+      title: "",
+    },
+  });
+
   useEffect(() => {
-    if (charactersData) {
-      setCharacters(charactersData.characters.results);
+    if (feedsData) {
+      setFeeds(feedsData.feeds.nodes);
     }
-    refetch();
-  }, [charactersData, category, keyword, router, refetch]);
+    feedsRefetch();
+  }, [feedsData, category, keyword, router, feedsRefetch]);
+
+  // Jobs useEffect
+  useEffect(() => {
+    if (jobsData) {
+      setJobs(jobsData.jobs.nodes);
+    }
+    jobsRefetch();
+  }, [category, keyword, router, jobsRefetch, jobsData]);
 
   return (
     <>
@@ -155,26 +179,27 @@ const Jobs = () => {
         twitterHandle="Pyrtajam"
       />
       <Sidebar />
-      <Mostview
-        datas={characters}
-        loading={charactersLoading}
-        error={charactersError}
-        link="news"
-      />
+      <Mostview />
 
       {/* # 2ND HEADER */}
       <Grid container className={style.secondContainer}>
         <Grid items lg={8} md={12} sm={12} xs={12} className={style.secondGrid}>
-          <PageNews datas={data.slice(0, 8)} header="Jobs Update" link="jobs" />
+          <PageNews
+            datas={jobs}
+            loading={jobsLoading}
+            error={jobsError}
+            header="Resent Jobs"
+            link="jobs"
+          />
         </Grid>
         <Grid items lg={4} md={12} sm={12} xs={12} className={style.secondGrid}>
-          <SideviewOne datas={data.slice(0, 4)} header="Entertianment" />
+          <SideviewOne datas={feeds} header="Recent News" link="news"/>
         </Grid>
       </Grid>
       {/* END OF 2ND HEADER */}
       {/* # 3RD HEADER (slider) */}
 
-      <SliderFramework datas1={data.slice(0, 4)} header1="News" link1="news" />
+      <SliderFramework />
 
       {/* END OF 3RD HEADER */}
 

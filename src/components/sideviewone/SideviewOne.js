@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./SideviewOne.module.css";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 // COMPONENT IMPORT
 import TitleSmall from "../titlesmall/TitleSmall";
@@ -17,34 +18,39 @@ import Readmore from "../readmore/Readmore";
             } */
 }
 
-const SideviewOne = ({ datas, header }) => {
+const SideviewOne = ({ datas, header, link }) => {
+  const router = useRouter()
+  console.log("rouertes", router)
   return (
     <div className={style.container}>
       <div className={style.headerDiv}>
         <h2 className={style.header}>{header}</h2>
       </div>
-      <div >
+      <div className={style.contentDiv}>
         {datas &&
-          datas.map((data) => (
-            <Link href="/" key={data.id}>
+          datas.map((data, index) => (
+            <Link href={`/${link}/${data.id}`} key={data.id}>
               <div
-                className={data.id === 1 ? style.contentDiv1 : style.contentDiv}
+                className={index === 0 ? style.contentDiv1 : style.contentDiv}
               >
-                <div
-                  className={data.id === 1 ? style.imageDiv1 : style.imageDiv}
-                >
-                  {data.id === 1 && <WideImage image={data.image} />}
+                <div className={index === 0 ? style.imageDiv1 : style.imageDiv}>
+                  {index === 0 && (
+                    <WideImage
+                      image={
+                        data.featuredImage?.node?.sourceUrl &&
+                        data.featuredImage.node.sourceUrl
+                      }
+                    />
+                  )}
                 </div>
-                <div
-                  className={data.id === 1 ? style.titleDiv1 : style.titleDiv}
-                >
+                <div className={index === 0 ? style.titleDiv1 : style.titleDiv}>
                   <TitleSmall title={data.title} />
-                  <div className={style.description}>
+                  {/* <div className={style.description}>
                     <Description
                       description={data.description.slice(0, 150)}
                       more="..."
                     />
-                  </div>
+                  </div> */}
                   <Date date={data.date} />
                 </div>
               </div>

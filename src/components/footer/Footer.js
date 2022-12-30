@@ -46,31 +46,31 @@ function Footer() {
             <ul className={style.secondUl}>
               <Link
                 className={style.link}
-                href={`/news/?category=Rick&keyword=`}
+                href={`/news/?category=Entertainments`}
               >
-                <li className={style.secondList}>Entertainment</li>
+                <li className={style.secondList}>Entertainments</li>
               </Link>
               <Link
                 className={style.link}
-                href={`/news/?category=Morty&keyword=`}
+                href={`/news/?category=Sports`}
               >
-                <li className={style.secondList}>Sport</li>
+                <li className={style.secondList}>Sports</li>
               </Link>
               <Link
                 className={style.link}
-                href={`/news/?category=Morty&keyword=`}
+                href={`/news/?category=Event`}
               >
                 <li className={style.secondList}>Event</li>
               </Link>
               <Link
                 className={style.link}
-                href={`/news/?category=Morty&keyword=`}
+                href={`/news/?category=Educations`}
               >
-                <li className={style.secondList}>Education</li>
+                <li className={style.secondList}>Educations</li>
               </Link>
               <Link
                 className={style.link}
-                href={`/news/?category=Morty&keyword=`}
+                href={`/news/?category=Politics`}
               >
                 <li className={style.secondList}>Politics</li>
               </Link>
@@ -86,25 +86,25 @@ function Footer() {
             <ul className={style.secondUl}>
               <Link
                 className={style.link}
-                href={`/news/?category=Morty&keyword=`}
+                href={`/news/?category=`}
               >
                 <li className={style.secondList}>News</li>
               </Link>
               <Link
                 className={style.link}
-                href={`/jobs/?category=Morty&keyword=`}
+                href={`/jobs/?category=Jobs`}
               >
                 <li className={style.secondList}>Jobs</li>
               </Link>
               <Link
                 className={style.link}
-                href={`/jobs/?category=Morty&keyword=`}
+                href={`/jobs/?category=Notifications`}
               >
-                <li className={style.secondList}>Notification</li>
+                <li className={style.secondList}>Notifications</li>
               </Link>
               <Link
                 className={style.link}
-                href={`/jobs/?category=Morty&keyword=`}
+                href={`/jobs/?category=AdmitCard`}
               >
                 <li className={style.secondList}>Admit Card</li>
               </Link>

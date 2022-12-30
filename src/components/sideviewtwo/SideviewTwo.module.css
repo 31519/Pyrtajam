@@ -1,6 +1,7 @@
 
   .container {
     margin: 10px;
+    width: 100%
   }
 .contentDiv {
   display: flex;
@@ -20,6 +21,7 @@
 .imageDiv {
   width: 30%;
   margin: 10px;
+  background: linear-gradient(225deg, #06fd7d, #16d0e1);
 }
 
 .imageDiv {
@@ -58,6 +60,7 @@
   }
   .container {
     margin: 10px;
+    width: 90%;
   }
 
   .description {

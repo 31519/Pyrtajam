@@ -67,10 +67,11 @@
 
 .grid {
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
   flex-wrap: wrap;
   max-width: 800px;
+  width: 100%;
 }
 
 .card {
@@ -107,11 +108,22 @@
   height: 1em;
   margin-left: 0.5rem;
 }
+.grid {
+  /* border:1px solid gray */
+  align-items:start;
+  border-left: 1px solid #b3acac6e;
+}
 
 @media (max-width: 600px) {
   .grid {
     width: 100%;
     flex-direction: column;
+  }
+
+  .grid {
+    /* border:1px solid gray */
+    align-items:center;
+    border-left: 1px solid #b3acac6e;
   }
 }
 
@@ -129,11 +141,7 @@
 }
 
 
-.grid {
-  /* border:1px solid gray */
-  align-items:start;
-  border-left: 1px solid #b3acac6e;
-}
+
 
 .mainContainer{
   display: flex;

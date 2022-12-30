@@ -18,7 +18,7 @@ import Readmore from "../readmore/Readmore";
             } */
 }
 
-const SideviewTwo = ({ datas, header }) => {
+const SideviewTwo = ({ datas, header, link }) => {
   return (
     <div className={style.container}>
       <div className={style.headerDiv}>
@@ -27,26 +27,31 @@ const SideviewTwo = ({ datas, header }) => {
       <div >
         {datas &&
           datas.map((data) => (
-            <Link href="/" key={data.id}>
+            <Link href={`/${link}/${data.id}`} key={data.id}>
               <div className={style.contentDiv}>
                 <div className={style.titleDiv}>
                   <TitleSmall title={data.title} />
-                  <div className={style.description}>
+                  {/* <div className={style.description}>
                     <Description
-                      description={data.description.slice(0, 150)}
+                      description={data.content.slice(0, 150)}
                       more="..."
                     />
-                  </div>
+                  </div> */}
                   <Date date={data.date} />
                 </div>
 
                 <div className={style.imageDiv}>
-                  <Image
-                    layout="fill"
-                    className={style.image}
-                    src={data.image}
-                    alt=""
-                  />
+                  {
+                  data.featuredImage?.node.sourceUrl && (
+
+                    <Image
+                      layout="fill"
+                      className={style.image}
+                      src={data.featuredImage.node.sourceUrl}
+                      alt=""
+                    />
+                  )
+                  }
                 </div>
               </div>
             </Link>

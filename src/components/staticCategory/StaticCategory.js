@@ -9,11 +9,11 @@ const category = [
   },
   {
     title: "Jobs",
-    link: "/jobs/?category=Jobs&keyword=",
+    link: "/news/?category=Jobs&keyword=",
   },
   {
     title: "Sport",
-    link: "/news/?category=Sport&keyword=",
+    link: "/news/?category=Sports&keyword=",
   },
   {
     title: "Politics",
@@ -25,12 +25,12 @@ const category = [
   },
   {
     title: "Notification",
-    link: "/jobs/?category=Notification&keyword=",
+    link: "/News/?category=Notification&keyword=",
   },
   
   {
     title: "Admit card",
-    link: "/jobs/?category=Admit card&keyword=",
+    link: "/News/?category=Admit card&keyword=",
   },
 ];
 

@@ -3,20 +3,20 @@
   }
   .contentDiv {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
   
   }
   
   .imageDiv {
-    width: 100%;
-    height: 400px;
+    width: 40%;
+    height: 160px;
     margin: 10px auto;
     position: relative;
     background: linear-gradient(225deg, #06fd7d, #16d0e1);
   }
   .titleDiv {
-    width: 100%;
-    margin: 0px;
+    width: 60%;
+    margin: 0px 20px;
   }
   
   .image {
@@ -28,7 +28,7 @@
   
   .title {
     font-family: var(---poppins);
-    font-size: 35px;
+    font-size: 22px;
     word-wrap: break-word;
     white-space: pre-wrap;
   }
@@ -36,9 +36,8 @@
   
   .text {
     font-family: var(---poppins);
+    color: #748493;
     letter-spacing: 1px;
-    font-size: 20px;
-    color: #1d1e1e;    
   }
   
   
@@ -47,18 +46,15 @@
       padding: 10px
     }
     .imageDiv {
-        height: 180px;
+        height: 100px;
       }
   
       .title {
-        font-size: 22px;
+        font-size: 20px;
     }
-
-    .text {
-      font-family: var(---poppins);
-      letter-spacing: 1px;
-      font-size: 16px;
-      color: #383939;  
+    .description {
+      display: none;
     }
   
   }
+  

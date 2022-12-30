@@ -12,6 +12,8 @@
     width: 80%;
     margin: 10px auto;
     scroll-snap-type: x mandatory;
+    justify-content: start;
+    
   }
   
   .sliderContent {
@@ -29,6 +31,7 @@
   @media screen and (max-width: 600px) {
   
     .sliderContainer{
+      justify-content: start;
   
       width: 90%;
     }

@@ -20,7 +20,13 @@ import StaticCategory from "../components/staticCategory/StaticCategory";
 
 // GRAPHQL IMPORT
 
-import { GET_CHARACTERS } from "../../graphql/queries";
+// import { GET_CHARACTERS, GET_ARTICLE } from "../../graphql/queries";
+import {
+  GET_PROPERTIES,
+  GET_FEEDS,
+  GET_JOBS,
+  GET_EDUCATIONS,
+} from "../../graphql/queries";
 
 const data = [
   {
@@ -123,29 +129,95 @@ const data = [
 ];
 
 export default function Home() {
+  const [properties, setProperties] = useState([]);
+  const [feeds, setFeeds] = useState([]);
+  const [educations, setEducations] = useState([]);
+  const [jobs, setJobs] = useState([]);
 
+  // Properties
   const {
-    loading: charactersLoading,
-    error: charactersError,
-    data: charactersData,
-  } = useQuery(GET_CHARACTERS, {
+    loading: PropertyLoading,
+    error: PropertyError,
+    data: PropertyData,
+  } = useQuery(GET_PROPERTIES, {
     variables: {
-      "name": "Rick",
-      "status":"Alive"
-    }
+      price: "",
+      title: "",
+    },
   });
+
+  // Feeds
+  const {
+    loading: feedsLoading,
+    error: feedsError,
+    data: feedsData,
+  } = useQuery(GET_FEEDS, {
+    variables: {
+      title: "",
+      category: "News"
+    },
+  });
+
+  // Jobs
+  const {
+    loading: jobsLoading,
+    error: jobsError,
+    data: jobsData,
+  } = useQuery(GET_FEEDS, {
+    variables: {
+      title: "",
+      category: "Jobs"
+    },
+  });
+
+  // educations
+  const {
+    loading: educationsLoading,
+    error: educationsError,
+    data: educationsData,
+  } = useQuery(GET_FEEDS, {
+    variables: {
+      title: "",
+      category: "Educations"
+    },
+  });
+
+  console.log("feedssss", feedsData);
+
   const router = useRouter();
-  const [characters, setCharacters] = useState([])
+  const [characters, setCharacters] = useState([]);
 
-
+  // Property useEffect
   useEffect(() => {
-      if (charactersData) {
-        setCharacters(charactersData.characters.results)
-      }
-  }, [charactersData]);
+    if (PropertyData) {
+      setProperties(PropertyData.properties.nodes);
+    }
+    console.log("data", properties);
+  }, [PropertyData, router]);
 
+  // Feeds useEffect
+  useEffect(() => {
+    if (feedsData) {
+      setFeeds(feedsData.posts.nodes);
+    }
+    console.log("feeds", feeds);
+  }, [router, feedsData]);
 
+  // Jobs useEffect
+  useEffect(() => {
+    if (jobsData) {
+      setJobs(jobsData.posts.nodes);
+    }
+    console.log("jobs", jobs);
+  }, [router, jobsData]);
 
+  // Education useEffect
+  useEffect(() => {
+    if (educationsData) {
+      setEducations(educationsData.posts.nodes);
+    }
+    console.log("educations", educations);
+  }, [router, educationsData]);
 
   return (
     <>
@@ -159,36 +231,42 @@ export default function Home() {
       />
       <Sidebar />
 
-      <Mostview datas={characters} loading={charactersLoading} error={charactersError} link="news" />
+      <Mostview
+        datas={properties}
+        loading={PropertyLoading}
+        error={PropertyError}
+        link="news"
+      />
       <StaticCategory />
       {/* # 1ST HEADER */}
-      {/* <Grid container className={style.mainContainer}>
+      <Grid container className={style.mainContainer}>
         <Grid className={style.grid} items lg={6} md={12} sm={12} xs={12}>
-          <MainviewOne datas={data} header="New Update" />
+          <MainviewOne datas={feeds && feeds.slice(0,4)} header="News" link="news" />
         </Grid>
         <Grid className={style.grid} items lg={3} md={12} sm={12} xs={12}>
-          <SideviewOne datas={data.slice(0, 3)} header="Jobs" />
+          <SideviewOne datas={feeds && feeds.slice(0, 6)} header="News"  link="news" />
         </Grid>
         <Grid className={style.grid} items lg={3} md={12} sm={12} xs={12}>
-          <SideviewTwo datas={data.slice(0, 6)} header="Entertianment" />
+          <SideviewTwo datas={jobs && jobs.slice(0, 6)} header="Entertianment" link="news" />
         </Grid>
-      </Grid> */}
+      </Grid>
       {/* END OF 1ST HEADER */}
 
       {/* # 2ND HEADER */}
-      {/* <Grid container className={style.secondContainer}>
+      <Grid container className={style.secondContainer}>
         <Grid items lg={8} md={12} sm={12} xs={12} className={style.secondGrid}>
-          <MainviewTwo datas={data.slice(0, 4)} header="Jobs Update" />
+          <MainviewTwo datas={jobs && jobs.slice(0, 4)} header="Jobs Update" link="news"/>
         </Grid>
         <Grid items lg={4} md={12} sm={12} xs={12} className={style.secondGrid}>
-          <SideviewTwo datas={data.slice(0, 4)} header="Entertianment" />
+          <SideviewTwo datas={educations && educations.slice(0, 4)} header="Educations" link="news" />
         </Grid>
-      </Grid> */}
+      </Grid>
       {/* END OF 2ND HEADER */}
 
       {/* # 3RD HEADER (slider) */}
 
       <SliderFramework />
+
 
       {/* END OF 3RD HEADER */}
 

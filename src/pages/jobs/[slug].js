@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Grid } from "@mui/material";
 import style from "../../../styles/detail.module.css";
+import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
 // COMPONENTS IMPORT
 
 // COMPONENTS IMPORT
@@ -13,107 +15,73 @@ import SideviewOne from "../../components/sideviewone/SideviewOne";
 import Detail from "../../components/detailpage/Detail";
 import MetaScreen from "../../components/metatags/MetaScreen";
 
-const data = [
-  {
-    id: 1,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are herethis is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here v this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here ",
-    image: "/jobPlaceholder.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 2,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here",
-    image: "/advertise.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 3,
-    title:
-      "this is the first data for this test app  as long as we are here this is the first data for this test app  as long as we are h",
-    description:
-      "this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are herethis is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here v this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here ",
-    image: "/jobPlaceholder.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 4,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here",
-    image: "/advertise.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 5,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are herethis is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here v this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here ",
-    image: "/jobPlaceholder.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 6,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here",
-    image: "/jobPlaceholder.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 7,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are herethis is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here v this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here this is the description for this test data or apps as long as we are here ",
-    image: "/jobPlaceholder.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 8,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here",
-    image: "/advertise.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 9,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here",
-    image: "/jobPlaceholder.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 10,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here",
-    image: "/advertise.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 11,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here",
-    image: "/jobPlaceholder.jpg",
-    date: "Jun 4, 2021",
-  },
-  {
-    id: 12,
-    title: "this is the first data for this test app  as long as we are here",
-    description:
-      "this is the description for this test data or apps as long as we are here",
-    image: "/advertise.jpg",
-    date: "Jun 4, 2021",
-  },
-];
+import { GET_FEEDS, GET_JOB, GET_EDUCATIONS } from "../../../graphql/queries";
 
 const JobsDetail = () => {
+  const router = useRouter()
+  const { slug } = router.query;
+  const [feeds, setFeeds] = useState([]);
+  const [educations, setEducations] = useState([]);
+  const [job, setJob] = useState([]);
+
+  // Feeds
+  const {
+    loading: feedsLoading,
+    error: feedsError,
+    data: feedsData,
+    refetch: feedsRefetch,
+  } = useQuery(GET_FEEDS, {
+    variables: {
+      title: "",
+    },
+  });
+
+  // Jobs
+  const {
+    loading: jobLoading,
+    error: jobError,
+    data: jobData,
+  } = useQuery(GET_JOB, {
+    variables: {
+      id: `${slug}`,
+    },
+  });
+
+  // educations
+  const {
+    loading: educationsLoading,
+    error: educationsError,
+    data: educationsData,
+  } = useQuery(GET_EDUCATIONS, {
+    variables: {
+      title: "",
+    },
+  });
+
+  // Feeds useEffect
+  useEffect(() => {
+    if (feedsData) {
+      setFeeds(feedsData.feeds.nodes);
+    }
+    // console.log("feeds", feed);
+  }, [router, feedsData]);
+
+  // Jobs useEffect
+  useEffect(() => {
+    if (jobData) {
+      setJob(jobData.job);
+    }
+    // console.log("jobs", jobs);
+  }, [router, slug, jobData]);
+
+  // Education useEffect
+  useEffect(() => {
+    if (educationsData) {
+      setEducations(educationsData.educations.nodes);
+    }
+    // console.log("educations", educations);
+  }, [router, educationsData]);
+
   return (
     <>
       <MetaScreen
@@ -125,15 +93,19 @@ const JobsDetail = () => {
         twitterHandle="Pyrtajam"
       />
       <Sidebar />
-      <Mostview datas={data} link="news" />
+      <Mostview  />
 
       {/* # 2ND HEADER */}
       <Grid container className={style.secondContainer}>
         <Grid items lg={8} md={12} sm={12} xs={12} className={style.secondGrid}>
-          <Detail datas={data[0]} header="Jobs Update" />
+          <Detail datas={job} loading={jobLoading} header="Jobs Detail" />
         </Grid>
         <Grid items lg={4} md={12} sm={12} xs={12} className={style.secondGrid}>
-          <SideviewOne datas={data.slice(0, 4)} header="Entertianment" />
+          <SideviewOne
+            datas={feeds && feeds.slice(0, 4)}
+            header="Recent News"
+            link="news"
+          />
         </Grid>
       </Grid>
       {/* END OF 2ND HEADER */}

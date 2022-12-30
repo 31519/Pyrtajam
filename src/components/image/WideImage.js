@@ -6,7 +6,9 @@ import React from "react";
 function WideImage({ image }) {
   return (
     <div className={style.imageDiv}>
-      <Image layout="fill" className={style.image} src={image} alt="" />
+      {image && (
+        <Image layout="fill" className={style.image} src={image} alt="" />
+      )}
     </div>
   );
 }

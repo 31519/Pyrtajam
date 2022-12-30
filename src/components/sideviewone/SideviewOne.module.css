@@ -1,9 +1,14 @@
 .container {
   padding: 10px;
+  width: 100%;
+  /* display: flex;
+flex-direction: column;
+justify-content: start;
+text-align: start; */
 }
 
 .contentDiv {
-  display: flex;
+  /* display: flex; */
   border-bottom: 1px solid rgba(226, 222, 222, 0.808);
 }
 .titleDiv {
@@ -14,6 +19,13 @@
 .imageDiv1 {
   /* width: 40%; */
   margin: 10px;
+  background: linear-gradient(225deg, #06fd7d, #16d0e1);
+}
+
+.contentDiv{
+  margin: 10px auto;
+  border-bottom: 1px solid black;
+  width: 95%;
 }
 
 .contentDiv1 {
@@ -41,5 +53,9 @@
 
   .container {
     margin: 10px;
+    width: 90%
+  }
+  .contentDiv{
+    display: block;
   }
 }

@@ -22,20 +22,20 @@ const Detail = ({ datas, header }) => {
         {datas && (
           <div className={style.contentDiv}>
             <div className={style.imageDiv}>
-              <Image
-                layout="fill"
-                className={style.image}
-                src={datas.image}
-                alt=""
-              />
+              {datas.featuredImage?.node?.sourceUrl && (
+                <Image
+                  layout="fill"
+                  className={style.image}
+                  src={datas.featuredImage.node.sourceUrl}
+                  alt=""
+                />
+              )}
             </div>
-              <Date date={datas.date} />
+            <Date date={datas.date} />
             <div className={style.titleDiv}>
               <h2 className={style.title}>{datas.title}</h2>
               <div className={style.description}>
-                <p className={style.text}>
-                  {datas.description}
-                </p>
+                <p className={style.text}>{datas.content}</p>
               </div>
             </div>
           </div>

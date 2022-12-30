@@ -5,89 +5,80 @@ import { useRouter } from "next/router";
 
 function SearchBox() {
   const router = useRouter();
-  const [cat, setCat] = useState("")
-  const {category, page}  = router.query
+  const [cat, setCat] = useState("");
+  const { category, page } = router.query;
   const [openSearch, setOpenSearch] = useState(false);
   const [keyword, setKeyword] = useState("");
-  // const category = "rick"
+  const [pages, setPages] =useState("")
+  console.log("category", category)
 
   let queryParams;
   if (typeof window != "undefined") {
     queryParams = new URLSearchParams(document.location.search.substring(1));
   }
 
-
-
   const searchHandler = async (e) => {
     e.preventDefault();
-    // var cater = queryParams.get("category")
-    // console.log("cater", cater)
 
+    if(!category){
+      setCat("")
+    }
+    if(!page) {
+      setPages(1)
+    }
 
-      // if (queryParams.has("category")) {
-      //   queryParams.set("category", category);
-      //   console.log("category", category)
-      //   setCat(category)
-      // } else {
-      //   queryParams.append("category", "s");
-      //   console.log("nocategory", category)
-      //   setCat("")
-      // }
-      var path
+    var path;
+    // if(router.pathname==="/news"){
+    //   path = `/news?q=${keyword}&c=${cat}&page=${pages}`
+    // } else(
+    //   path = `/search?q=${keyword}`
+    // )
 
-    
-      if (queryParams.has("category")) {
-        if (keyword) {
-          if(router.pathname === "/"){
-            path = "/news"
-          } else {
-            path = ""
-          }
-          let searchQuery = `${router.pathname}${path}/?category=${category}&keyword=${keyword}&page=${page=1}`;
-          router.push(searchQuery);
-        } else {
-    
-          router.push(`${router.pathname}`);
-        }
-        console.log("category", category)
-        setCat(category)
-      } else {
-        if (keyword) {
-          if(router.pathname === "/"){
-            path = "/news"
-          } else {
-            path = ""
-          }
-          let searchQuery = `${router.pathname}${path}/?category=&keyword=${keyword}&page=${page=1}`;
-          router.push(searchQuery);
-          
-        } else {
-    
-          router.push(`${router.pathname}`);
-        }
-        console.log("nocategory", category)
-        
-      }
+    // if (queryParams.has("category")) {
+    //   if (keyword) {
+    //     if (
+    //       router.pathname === "/" ||
+    //       router.pathname === "privacy" ||
+    //       router.pathname === "aboutus" ||
+    //       router.pathname === "termsandconditions" ||
+    //       router.pathname === "404"
+    //     ) {
+    //       path = "/news";
+    //     } else {
+    //       path = "";
+    //     }
+    //     let searchQuery = `${
+    //       router.pathname
+    //     }${path}/?category=${category}&keyword=${keyword}&page=${(page = 1)}`;
+    //     router.push(searchQuery);
+    //   } else {
+    //     router.push(`${router.pathname}`);
+    //   }
+    //   console.log("category", category);
+    //   setCat(category);
+    // } else {
+    //   if (keyword) {
+    //     if (
+    //       router.pathname === "/" ||
+    //       router.pathname === "/privacy" ||
+    //       router.pathname === "/aboutus" ||
+    //       router.pathname === "/termsandconditions" ||
+    //       router.pathname === "/404"
+    //       ) {
+    //       path = "/news";
+    //     } else {
+    //       path = router.pathname;
+    //     }
+    //     let searchQuery = `${path}/?category=&keyword=${keyword}&page=${(page = 1)}`;
+    //     router.push(searchQuery);
+    //   } else {
+    //     router.push(`${router.pathname}`);
+    //   }
+      
+    // }
 
-
-
-  //   if (keyword) {
-  //     if(router.pathname === "/"){
-  //       path = "/news"
-  //     } else {
-  //       path = ""
-  //     }
-  //     let searchQuery = `${router.pathname}${path}/?category=${cat}&keyword=${keyword}&page=${page=1}`;
-  //     router.push(searchQuery);
-  //     console.log("keyword", router.pathname)
-  //   } else {
-
-  //     router.push(`${router.pathname}`);
-  //   }
+    await router.push(`/news?q=${keyword}&category=${cat}&page=${pages}`)
   };
-
-
-
 
   // const openHandler = (e) => {
   //   if (openSearch === false) {
@@ -117,7 +108,7 @@ function SearchBox() {
           id="input"
         />
         <button className={style.searchBtn} type="submit">
-          <SearchIcon  />
+          <SearchIcon />
         </button>
       </div>
     </form>

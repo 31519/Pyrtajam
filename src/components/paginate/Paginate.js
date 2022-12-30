@@ -1,12 +1,18 @@
+import React, { useState, useEffect } from "react";
+
+
 import Pagination from "react-js-pagination";
 import { useRouter } from "next/router";
 
 
 const Paginate = ({  count, resPerPage }) => {
   const router = useRouter();
+  const [keyword, setKeyword] = useState("");
+  const [pages, setPages] =useState("")
+  const [cat, setCat] = useState("");
 
-  let { page = 1, keyword } = router.query;
-  page = Number(page);
+  const { q, c, page } = router.query;
+  
   // console.log("screen", page);
   // console.log("keyword", keyword);
   // console.log("routrer.query", router.query);
@@ -15,15 +21,32 @@ const Paginate = ({  count, resPerPage }) => {
     queryParams = new URLSearchParams(window.location.search);
   }
 
-  const handlePageClick = (currentPage) => {
+  const handlePageClick = async(currentPage) => {
     if (queryParams.has("page")) {
       queryParams.set("page", currentPage);
     } else {
       queryParams.append("page", currentPage);
     }
-    router.push({
-      search: queryParams.toString(),
-    });
+    console.log("currentpage", currentPage)
+
+
+    if(c){
+      setCat(c)
+    }
+    console.log("cat",c)
+    console.log("page", page)
+    if(q){
+      setKeyword(q)
+    }
+    console.log("keyword", q)
+
+    var path;
+    if(router.pathname==="/news"){
+      path = `/news?q=${keyword}&c=${cat}&page=${currentPage}`
+    } else(
+      path = `/search?q=${keyword}`
+    )
+    await router.push(path)
   };
 
   return (

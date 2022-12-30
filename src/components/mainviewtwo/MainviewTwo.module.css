@@ -2,7 +2,7 @@
   margin: 20px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: start;
 }
 
 .contentDiv {
@@ -22,6 +22,7 @@
 
 .imageDiv1 {
   width: 50%;
+  background: linear-gradient(225deg, #06fd7d, #16d0e1);
 }
 
 .titleDiv {
@@ -32,6 +33,7 @@
 .imageDiv {
   width: 40%;
   display: none;
+  background: linear-gradient(225deg, #06fd7d, #16d0e1);
 }
 
 .titleDiv1 {

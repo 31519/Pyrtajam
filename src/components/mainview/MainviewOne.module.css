@@ -1,5 +1,9 @@
+.mainviewoneContainer {
+  width: 90%;
+}
+
 .container {
-  margin: 20px;
+  width: 100%;
 }
 
 .contentDiv {
@@ -38,6 +42,7 @@
   }
 
   .container {
-    margin: 10px;
+    margin: none;
+    width: 100%;
   }
 }

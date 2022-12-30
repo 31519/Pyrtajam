@@ -1,5 +1,3 @@
-
-
 export const posts = [
     {
       id: 1,
@@ -97,4 +95,4 @@ export const posts = [
       image: "/advertise.jpg",
       date: "Jun 4, 2021",
     },
-  ];
+  ]
