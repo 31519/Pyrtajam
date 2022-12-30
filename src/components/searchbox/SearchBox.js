@@ -20,7 +20,9 @@ function SearchBox() {
   const searchHandler = async (e) => {
     e.preventDefault();
 
-    if(!category){
+    if(category){
+      setCat(category)
+    } else {
       setCat("")
     }
     if(!page) {

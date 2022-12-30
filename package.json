@@ -16,6 +16,7 @@
     "@material-ui/icons": "^4.11.3",
     "@mui/icons-material": "^5.10.6",
     "@mui/material": "^5.10.6",
+    "@wordpress/block-library": "^8.0.0",
     "apollo-server-micro": "^3.10.3",
     "axios": "^1.1.2",
     "graphql": "^16.6.0",

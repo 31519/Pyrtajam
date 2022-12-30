@@ -33,10 +33,12 @@ const Detail = ({ datas, header }) => {
             </div>
             <Date date={datas.date} />
             <div className={style.titleDiv}>
-              <h2 className={style.title}>{datas.title}</h2>
-              <div className={style.description}>
+              <h1 className={style.title}>{datas.title}</h1>
+              <div dangerouslySetInnerHTML={{__html:datas.content}}/>
+
+              {/* <div className={style.description}>
                 <p className={style.text}>{datas.content}</p>
-              </div>
+              </div> */}
             </div>
           </div>
         )}

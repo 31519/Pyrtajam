@@ -7,11 +7,14 @@ import Image from "next/image";
 const brand = [
   {
     logo:"/brand/crfeeds.png",
-    title: "CRfeeds"
+    title: "CRfeeds",
+    link: "https://crfeeds.in"
+
   },
   {
     logo:"/brand/pyrtajam.png",
-    title: "Pyrtajam"
+    title: "Pyrtajam",
+    link: "https://pyrtajam.com"
   },
   
 ]

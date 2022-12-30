@@ -43,7 +43,7 @@ const PageNews = ({ datas,total, header, link, loading , error }) => {
                   )}
                 </div>
                 <div className={style.titleDiv}>
-                  <h2 className={style.title}>{data.title}</h2>
+                  <h1 className={style.title}>{data.title}</h1>
                   {/* <div className={style.description}>
                     <p className={style.text}>
                       {data.description.slice(0, 100)} ...
@@ -55,7 +55,7 @@ const PageNews = ({ datas,total, header, link, loading , error }) => {
             </Link>
           ))}
       </div>
-      <Paginate resPerPage={2} count={total} />
+      {/* <Paginate resPerPage={2} count={total} /> */}
     </div>
   );
 };
